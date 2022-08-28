@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/editor/scripts/filedrop.gd" type="Script" id=1]
+[ext_resource path="res://scenes/common/scripts/camera.gd" type="Script" id=2]
+[ext_resource path="res://scenes/editor/scripts/mousesurface.gd" type="Script" id=3]
+
+[node name="main" type="Spatial"]
+
+[node name="ui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="filedrop" type="Control" parent="ui"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+
+[node name="vbox" type="VBoxContainer" parent="ui"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui/vbox"]
+margin_right = 1024.0
+margin_bottom = 15.0
+bbcode_enabled = true
+bbcode_text = "Selected Chunk: -"
+text = "Selected Chunk: -"
+fit_content_height = true
+
+[node name="dock" type="PanelContainer" parent="ui"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 74.0
+grow_vertical = 0
+
+[node name="hbox" type="HBoxContainer" parent="ui/dock"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 67.0
+margin_bottom = 33.0
+
+[node name="Button" type="Button" parent="ui/dock/hbox"]
+margin_right = 12.0
+margin_bottom = 26.0
+
+[node name="Button2" type="Button" parent="ui/dock/hbox"]
+margin_left = 16.0
+margin_right = 28.0
+margin_bottom = 26.0
+
+[node name="Button3" type="Button" parent="ui/dock/hbox"]
+margin_left = 32.0
+margin_right = 44.0
+margin_bottom = 26.0
+
+[node name="Button4" type="Button" parent="ui/dock/hbox"]
+margin_left = 48.0
+margin_right = 60.0
+margin_bottom = 26.0
+
+[node name="env" type="Spatial" parent="."]
+
+[node name="world" type="Spatial" parent="."]
+
+[node name="cameraman" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="pivot" type="Spatial" parent="cameraman"]
+
+[node name="cam" type="Camera" parent="cameraman/pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.31033 )
